@@ -25,6 +25,7 @@ public class CampoBatalla extends Canvas{
     }
     
     public void iniciarCampo(String[][] matriz) {
+        
         this.matriz = matriz;
         for (int f = 0; f < matriz.length; f++) {
             for (int c = 0; c < matriz[f].length; c++) {
@@ -64,14 +65,22 @@ public class CampoBatalla extends Canvas{
                     rocas.add(new Numero(f * 0, c * 365,"nueve"));
                 } else if (matriz[f][c].equals("N")) {
                     rocas.add(new Numero(f * 365, c * 0,"nueve"));
-                } 
+                }
 
             }
         }
         
         for (int f = 0; f < matriz.length; f++) {
             for (int c = 0; c < matriz[f].length; c++) {
-                 if (matriz[f][c].equals("1")) {
+                 if(matriz[f][c].equals("v")){
+                    rocas.add(new Numero(f*8,c*8,"barco"));
+                }
+            }
+        }
+        
+        for (int f = 0; f < matriz.length; f++) {
+            for (int c = 0; c < matriz[f].length; c++) {
+                 if(matriz[f][c].equals("1")){
                     rocas.add(new Muros(f * 8, c * 8));
                 }
             }
@@ -153,6 +162,5 @@ public class CampoBatalla extends Canvas{
         g.drawImage(imgBuffer, 0, 0, this);
         g.drawImage(imgBuffer2, 500, 0, this);
     }
-    
     
 }
